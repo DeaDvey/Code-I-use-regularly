@@ -1,0 +1,125 @@
+//Code I use a lot, feel free to use
+          //content:
+//*linking to css
+//*text processor
+//*text processor ^^ button starter
+//*iframe template
+//*return button
+//*text logger
+//*link to jquery
+//*see for arrow up and down
+//*load and save from localStorage
+
+
+
+<link rel="stylesheet" type="text/css" href="/file.css" />
+
+
+
+
+
+
+
+function process_text() {
+    let text = document.querySelectorAll(".input-here")[0].value;
+    text = text.toLowerCase();
+    document.querySelectorAll(".input-here")[0].value = ""; //clear the box
+}
+
+
+
+
+
+
+
+document.querySelectorAll(".my-button")[0].addEventListener("click", process_text);
+document.querySelectorAll(".input-here")[0].addEventListener("keypress", function(event) {
+    if (event.code === 'Enter' || event.key === "Enter") {
+        //they pressed enter
+        process_text();
+    }
+    //If they pressed any other key just ignore it
+});
+
+
+
+
+
+
+
+<iframe width="1700" height="700" src="mainGame.html" title="description"></iframe> 
+
+
+
+
+
+
+
+
+<a href="index.html">
+            <img width="200" src="return.png" style="border: 1px solid black; box-shadow: 5px 5px 5px #999"/>
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+function log(text) {
+    let our_div = document.querySelectorAll(".output-here")[0];
+    our_div.innerHTML = our_div.innerHTML + text + "<br>";
+}
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script><script src="game.js"></script>
+
+
+
+
+
+
+
+document.addEventListener('keydown', e => {
+
+	if (e.key === 'ArrowUp') {
+    //debugger;
+  	const lastPos = Number(bird.style.top.split('vh')[0]);
+    if (lastPos > 1) {
+      bird.style.top = `${lastPos - 10}vh`;
+    }
+    console.log(lastPos)
+  }
+  
+  /*if (e.key === 'ArrowDown') {
+  	const lastPos = Number(bird.style.top.split('vh')[0]);
+    bird.style.top = `${lastPos + 3}vh`;
+    console.log(lastPos)
+  }*/
+
+})
+
+
+
+
+
+
+
+function load_int_from_local_storage(storage_name, default_value_if_unset) {
+  let loaded_value = localStorage.getItem(storage_name);
+  if (loaded_value !== null) {
+    return parseInt(loaded_value);
+  }
+  return default_value_if_unset;
+}
+
+function load_string_from_local_storage(storage_name, default_value_if_unset) {
+  let loaded_value = localStorage.getItem(storage_name);
+  if (loaded_value !== null) {
+    return loaded_value;
+  }
+  return default_value_if_unset;
+}
